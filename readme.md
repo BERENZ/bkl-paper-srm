@@ -1,5 +1,7 @@
 # Readme 
 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/BERENZ/bkl-paper-srm/main?urlpath=Rstudio)
+
 Materials for the paper:
 
 Beręsewicz, M., Białkowska, G., Marcinkowski, K., Maślak, M., Opiela, P., Pater, R., & Pawlukiewicz, K. (2019). *Enhancing the Demand for Labour survey by including skills from online job advertisements using model-assisted calibration*. To appear in **Survey Research Methods**
