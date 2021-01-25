@@ -1,0 +1,71 @@
+"0","```r
+dir(path = \"../data-raw\", pattern = \"*00\", full.names = T) %>%
+  set_names(basename(.)) %>%
+  map_df(~read_excel(path = .x, sheet = \"Arkusz5\", skip = 9, col_names = F) %>%
+            filter(`...1` != \"OGÓŁEM\") %>%
+            set_names(nm = c(\"zawod\",\"ogolem\", LETTERS[1:19])) %>%
+            select(-ogolem) %>%
+            mutate(kod = str_extract(zawod, \"\\d{1,2}\\.\"),
+                   kod = str_replace(kod, \"\\.\", \"\"),
+                   kod = as.numeric(kod)) %>%
+            filter(kod > 10) %>%
+            gather(sekcja, wolne, -kod, -zawod) %>%
+            filter(wolne > 0), 
+         .id = \"rok\") %>%
+  mutate(rok = readr::parse_number(rok),
+         kod1 = substr(kod, 1,1))  %>%
+  rename(kod2 = kod) %>%
+  select(rok, kod1, kod2, zawod, sekcja, wolne) -> gus_sek
+```"
+"1","
+-
+/
+                                                                                                                           
+"
+"1","New names:
+* `` -> ...1
+* `` -> ...2
+* `` -> ...3
+* `` -> ...4
+* `` -> ...5
+* … and 16 more problems
+"
+"1","
+-
+/
+                                                                                                                           
+"
+"1","New names:
+* `` -> ...1
+* `` -> ...2
+* `` -> ...3
+* `` -> ...4
+* `` -> ...5
+* … and 16 more problems
+"
+"1","
+-
+/
+                                                                                                                           
+"
+"1","New names:
+* `` -> ...1
+* `` -> ...2
+* `` -> ...3
+* `` -> ...4
+* `` -> ...5
+* … and 16 more problems
+"
+"1","
+-
+/
+                                                                                                                           
+"
+"1","New names:
+* `` -> ...1
+* `` -> ...2
+* `` -> ...3
+* `` -> ...4
+* `` -> ...5
+* … and 16 more problems
+"

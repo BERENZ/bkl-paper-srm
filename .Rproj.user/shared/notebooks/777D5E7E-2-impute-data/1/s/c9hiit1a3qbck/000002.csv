@@ -1,0 +1,46 @@
+"0","```r
+bkl %>%
+  filter(rok !=2012) %>%
+  skimr::skim()
+
+```"
+"1","Skim summary statistics
+ n obs: 62171 
+ n variables: 27 
+
+── Variable type:character ─────────────────────────────────────────────────────────────────────────────────────────────────────────
+      variable missing complete     n min max empty n_unique
+        branza   21373    40798 62171   1   2     0       45
+     forma_ogl       0    62171 62171   1   1     0        3
+          nace   22211    39960 62171   1   1     0       17
+     podregion    5621    56550 62171   1   2     0       66
+   sekcja_pkd2   20750    41421 62171   3   3     0      331
+           woj     268    61903 62171   2   2     0       16
+ wyksztalcenie   24814    37357 62171   6  19     0        5
+        zawod1     254    61917 62171   1   1     0        9
+        zawod6     254    61917 62171   6   6     0     1357
+        zrodlo       0    62171 62171   1   1     0        2
+
+── Variable type:logical ───────────────────────────────────────────────────────────────────────────────────────────────────────────
+             variable missing complete     n   mean                          count
+      jezyk_angielski       0    62171 62171 0.18    FAL: 50698, TRU: 11473, NA: 0
+      jezyk_niemiecki       0    62171 62171 0.05     FAL: 59071, TRU: 3100, NA: 0
+         komp_biurowe       0    62171 62171 0.031    FAL: 60241, TRU: 1930, NA: 0
+    komp_dyspozycyjne       0    62171 62171 0.15     FAL: 53041, TRU: 9130, NA: 0
+        komp_fizyczne       0    62171 62171 0.041    FAL: 59609, TRU: 2562, NA: 0
+    komp_indywidualne       0    62171 62171 0.42    FAL: 36298, TRU: 25873, NA: 0
+ komp_interpersonalne       0    62171 62171 0.38    FAL: 38447, TRU: 23724, NA: 0
+     komp_kierownicze       0    62171 62171 0.18    FAL: 51126, TRU: 11045, NA: 0
+      komp_kognitywne       0    62171 62171 0.14     FAL: 53526, TRU: 8645, NA: 0
+     komp_komputerowe       0    62171 62171 0.24    FAL: 47237, TRU: 14934, NA: 0
+      komp_kulturalne       0    62171 62171 0.11     FAL: 55138, TRU: 7033, NA: 0
+    komp_matematyczne       0    62171 62171 0.0026    FAL: 62008, TRU: 163, NA: 0
+      komp_techniczne       0    62171 62171 0.045    FAL: 59358, TRU: 2813, NA: 0
+        komp_zawodowe      26    62145 62171 0.26   FAL: 45846, TRU: 16299, NA: 26
+
+── Variable type:numeric ───────────────────────────────────────────────────────────────────────────────────────────────────────────
+        variable missing complete     n      mean        sd   p0  p25     p50       p75   p100     hist
+              id   20081    42090 62171 211028.53 293297.03    1 5478 14308.5 610179.75 847595 ▇▁▁▁▁▃▁▁
+             rok       0    62171 62171   2012.68      1.25 2011 2011  2013     2014      2014 ▇▁▁▁▁▇▁▇
+ zrodlo_dokladne       2    62169 62171    255.12    170.08    1  135   262      353       723 ▅▃▃▇▁▁▂▁
+"

@@ -1,0 +1,17 @@
+"0","```r
+final_data <- readRDS(\"../data/bkl-final.rds\") %>%
+  filter(zawod1 != 6, rok!=2012, nace %in% unique(totals$sekcja)) %>%
+  mutate(zawod2 = ifelse(zawod2 == 95, 96, zawod2),
+         zawod2 = ifelse(zawod2 == 92, 91, zawod2),
+         zawod2 = ifelse(zawod2 == 99, 96, zawod2),
+         zawod2 = ifelse(zawod2 == 53, 54, zawod2),
+         zeros = str_extract(zawod6, \"0+$\"),
+         zeros = str_count(zeros, \"0\"),
+         zeros = ifelse(is.na(zeros), 6, 6-zeros),
+         rok = as.character(rok)) %>%
+  rename(kod1 = zawod1,
+         kod2 = zawod2,
+         kod6 = zawod6,
+         sekcja = nace) %>%
+  filter(zeros > 1) 
+```"

@@ -1,0 +1,23 @@
+"0","```r
+gus_woj <- fread(\"../data-raw/POPYT_POZNAN_2011_2017.csv\") %>%
+  rename( kwartal = 3, woj = 4) %>%
+  select(rok = ROK, kwartal, woj, ends_with(\"1\"), -P6_011, -V1) %>%
+  filter(rok %in% 2011:2014, kwartal == 1, woj != \"POLSKA\") %>%
+  mutate(woj = str_pad(woj,2,\"0\",side = \"left\")) %>%
+  gather(zawody, liczba, -rok, -kwartal,-woj)  %>%
+  mutate(zawody = str_replace(zawody, \"P6_\",\"\"),
+         zawody = str_replace(zawody, \"1$\",\"\"),
+         zawody = as.numeric(zawody),
+         zawod1 = case_when(zawody %in% 2:5 ~ 1,
+                            zawody %in% 6:11 ~ 2,
+                            zawody %in% 12:16 ~ 3,
+                            zawody %in% 17:20 ~ 4,
+                            zawody %in% 21:24 ~ 5,
+                            zawody %in% 25:27 ~ 6,
+                            zawody %in% 28:32 ~ 7,
+                            zawody %in% 33:35 ~ 8,
+                            zawody %in% 36:41 ~ 9)) %>%
+  group_by(rok, kwartal, woj, zawod1) %>%
+  mutate(zawod2 = paste0(zawod1, row_number())) %>%
+  ungroup() 
+```"

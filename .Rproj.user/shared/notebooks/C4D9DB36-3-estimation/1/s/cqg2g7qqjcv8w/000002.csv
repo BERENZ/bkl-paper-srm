@@ -1,0 +1,5 @@
+"0","```r
+des <- svydesign(ids = ~1, data = final_data)
+```"
+"1","No weights or probabilities supplied, assuming equal probability
+"

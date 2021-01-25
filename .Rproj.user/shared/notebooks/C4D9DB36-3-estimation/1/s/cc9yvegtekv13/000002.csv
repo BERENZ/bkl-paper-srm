@@ -1,0 +1,11 @@
+"0","```r
+totals <- readRDS(\"../data/gus-woj-sek-boot-totals.rds\") %>%
+  filter(substr(kod2,1,1) != 6) %>%
+  mutate(kod2 = ifelse(kod2 == 95, 96, kod2),
+         kod2 = ifelse(kod2 == 92, 91, kod2),
+         kod2 = ifelse(kod2 == 53, 54, kod2),
+         #kod1 = as.character(kod1),
+         kod2 = as.character(kod2),
+         rok = as.character(rok)) 
+head(totals)
+```"

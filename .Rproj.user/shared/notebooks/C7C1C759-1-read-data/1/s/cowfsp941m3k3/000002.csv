@@ -1,0 +1,4 @@
+"0","```r
+gus_sek %>%
+  count(rok, wt = wolne)
+```"

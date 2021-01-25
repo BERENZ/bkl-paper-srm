@@ -1,0 +1,27 @@
+"0","```r
+d2011 <- read.table(\"../data-raw/popyt-2011\", header = F, sep  = \";\", dec = \",\", stringsAsFactors = F) %>%
+  select(sekcja = V1, prec = V3) %>%
+  mutate(rok = 2011)
+
+d2013 <- read_excel(\"../data-raw/PW_popyt_na_prace_w_2013.xls\", col_names = F, skip = 31) %>%
+  na.omit() %>%
+  mutate(sekcja = d2011$sekcja) %>%
+  select(sekcja, prec = 3)%>%
+  mutate(rok = 2013)
+  
+d2014 <- read_excel(\"../data-raw/popyt_na_prace_2014.xls\", col_names = F, skip = 31) %>%
+  na.omit() %>%
+  mutate(sekcja = d2011$sekcja) %>%
+  select(sekcja, prec = 3) %>%
+  mutate(rok = 2014)
+
+precs <- bind_rows(d2011,d2013, d2014)
+
+precs %>% 
+  spread(rok, prec) %>%
+  add_row(sekcja = \"overall\", `2011` = 3.40, `2013` = 4.01, `2014` = 3.98, .before = 1) %>%
+  xtable(caption = \"Estimates on relative standard erros of estimators for vacancies of the demand for labour in IV quarter 2011, 2013 and 2014\",
+         label = \"tab-rel-var\") %>%
+  print.xtable(include.rownames = F,
+               caption.placement = \"top\")
+```"

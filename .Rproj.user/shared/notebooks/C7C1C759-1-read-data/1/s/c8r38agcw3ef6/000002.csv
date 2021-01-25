@@ -1,0 +1,8 @@
+"0","```r
+gus_sek %>%
+  select(-zawod) %>%
+  mutate(kod1 = as.numeric(kod1)) %>%
+  bind_rows(gus_woj %>% 
+              mutate(kod2 = as.numeric(zawod2)) %>%
+              select(rok, woj, kod1 = zawod1, kod2 , woj, wolne = liczba)) -> gus_dane
+```"
