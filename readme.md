@@ -1,6 +1,6 @@
 # Readme 
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/BERENZ/bkl-paper-srm/main?urlpath=Rstudio)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/BERENZ/bkl-paper-srm/main?urlpath=rstudio)
 
 Materials for the paper:
 
