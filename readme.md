@@ -4,7 +4,7 @@
 
 Materials for the paper:
 
-Beręsewicz, M., Białkowska, G., Marcinkowski, K., Maślak, M., Opiela, P., Pater, R., & Pawlukiewicz, K. (2019). *Enhancing the Demand for Labour survey by including skills from online job advertisements using model-assisted calibration*. To appear in **Survey Research Methods**
+Beręsewicz, M., Białkowska, G., Marcinkowski, K., Maślak, M., Opiela, P., Pater, R., & Pawlukiewicz, K. (2021). *Enhancing the Demand for Labour survey by including skills from online job advertisements using model-assisted calibration*. **Survey Research Methods**
 
 Arxiv paper:  https://arxiv.org/abs/1908.06731
 
