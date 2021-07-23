@@ -1,3 +1,0 @@
-"0","```r
-saveRDS(res_alasso_kod2_nace, file = \"../results/res_alasso_kod2_nace.rds\")
-```"

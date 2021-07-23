@@ -1,3 +1,0 @@
-"0","```r
-saveRDS(res_calib, file = \"../results/res_calib.rds\")
-```"

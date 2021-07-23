@@ -1,3 +1,0 @@
-"0","```r
-saveRDS(object = gus_dane, file = \"../data/gus-woj-sek.rds\")
-```"

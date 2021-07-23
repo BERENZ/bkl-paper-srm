@@ -1,6 +1,0 @@
-"0","```r
-res_cmcgreg1 <- readRDS(file = \"../results/res_glm_kod2.rds\")
-
-```"
-"1","Error: vector memory exhausted (limit reached?)
-"

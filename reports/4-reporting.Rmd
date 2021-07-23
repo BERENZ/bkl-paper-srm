@@ -42,16 +42,6 @@ precs %>%
                caption.placement = "top")
 ```
 
-Read the data
-
-```{r}
-res_calib <- readRDS(file = "../results/res_calib.rds")
-res_lasso1 <- readRDS(file = "../results/res_lasso_kod2.rds")
-res_lasso2 <- readRDS(file = "../results/res_lasso_kod2_nace.rds")
-res_alasso1 <- readRDS(file = "../results/res_alasso_kod2.rds")
-#res_cmcgreg1 <- readRDS(file = "../results/res_glm_kod2.rds")
-```
-
 ```{r}
 
 
@@ -147,18 +137,18 @@ totals %>%
 
 Change format of the data
 
-```{r}
-res_calib_t <- transpose(res_calib)
-res_lasso1_t <- transpose(res_lasso1)
-res_lasso2_t <- transpose(res_lasso2)
-res_alasso1_t <- transpose(res_alasso1)
-res_cmcgreg1_t <- transpose(res_cmcgreg1)
+Read the data
 
-res_cmcgreg1_t <- readRDS("../results/res_cmcgreg1_wynik_est.rds")
+```{r}
+res_calib_t <- readRDS("../results/results_calib_kod2.rds")
+res_lasso1_t <- readRDS("../results/results_lasso_kod2.rds")
+res_lasso2_t <- readRDS("../results/results_lasso_nace.rds")
+res_alasso1_t <- readRDS("../results/results_alasso_kod2.rds")
+res_cmcgreg1_t <- readRDS("../results/results_ecmc_kod2.rds")
 ```
 
 ```{r}
-res_calib_t$calib_kod2 %>%
+res_calib_t %>%
   bind_rows(.id = "boot") %>%
   gather(komp, vals, komp_techniczne:komp_biurowe) %>%
   arrange(komp, boot) %>%
@@ -173,7 +163,7 @@ res_calib_t$calib_kod2 %>%
             estim = "greg") -> wyn_calib_kod2
 
 
-res_lasso1_t$wynik_est %>%
+res_lasso1_t %>%
   bind_rows(.id = "boot") %>%
   gather(komp, vals, komp_techniczne:komp_biurowe) %>% 
   mutate(vals = as.numeric(vals)) %>%
@@ -189,7 +179,7 @@ res_lasso1_t$wynik_est %>%
             estim = "lasso1") -> wyn_lasso1_kod2
 
 
-res_lasso2_t$wynik_est %>%
+res_lasso2_t %>%
   bind_rows(.id = "boot") %>%
   gather(komp, vals, komp_techniczne:komp_biurowe) %>%
   arrange(komp, boot) %>%
@@ -203,7 +193,7 @@ res_lasso2_t$wynik_est %>%
             q975 = quantile(vals,0.975),
             estim = "lasso2") -> wyn_lasso2_kod2
 
-res_alasso1_t$wynik_est %>%
+res_alasso1_t %>%
   bind_rows(.id = "boot") %>%
   select(boot, rok, starts_with("komp")) %>%
   gather(komp, vals, komp_techniczne:komp_biurowe) %>%
@@ -305,7 +295,7 @@ results %>%
         legend.position = "bottom") -> p
 
 
-ggsave(plot = p, file = "../results/fig-estims.png", width = 13)
+ggsave(plot = p, file = "../results/fig-estims.pdf", width = 13)
 
 ```
 
